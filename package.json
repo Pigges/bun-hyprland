@@ -1,0 +1,18 @@
+{
+  "name": "bun-hyprland",
+  "module": "src/index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "bun run --watch src/index.js",
+    "start": "bun run src/index.js"
+  },
+  "devDependencies": {
+    "bun-types": "^0.5.0"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "baojs": "^0.2.1"
+  }
+}

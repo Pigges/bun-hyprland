@@ -1,0 +1,38 @@
+<html>
+<body>
+    <input id="link-img" type="text">
+    <button id="submit-img">Open Image</button>
+
+    <input id="notify" type="text">
+    <button id="submit-notify">Send Notification</button>
+
+    <script>
+
+    document.querySelector('#submit-img').addEventListener('click', (e)=>{
+        fetch('/dispatch?args=' + encodeURIComponent(JSON.stringify([
+        "exec",
+        "curl",
+        document.querySelector('#link-img').value,
+        ">",
+        "/tmp/hyprimg",
+        "&&",
+        "viewnior",
+        "/tmp/hyprimg",
+        "&&",
+        "rm",
+        "/tmp/hyprimg"
+        ])))
+    });
+
+    document.querySelector('#submit-notify').addEventListener('click', (e)=>{
+        fetch('/notify?args=' + encodeURIComponent(JSON.stringify([
+            1,
+            10000,
+            "rgb(ccffcc)",
+            " " + document.querySelector('#notify').value
+        ])))
+    });
+
+    </script>
+</body>
+</html>
